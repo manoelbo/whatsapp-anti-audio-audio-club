@@ -27,7 +27,6 @@ const ReceivedMessage = (req, res) => {
         var messageObject = value["messages"];
 
         console.log(messageObject);
-
         if(typeof messageObject != "undefined"){
             var messages = messageObject[0];
             var text = GetTextUser(messages);
@@ -62,6 +61,11 @@ function GetTextUser(messages){
             console.log("no msg");
         }
 
+    } else if(typeMessage == "audio"){
+        console.log("audio")
+        id = (messages["audio"])["id"];
+        console.log(id);
+        whatsappService.getMediaURLWhatsApp(id);
     } else {
         console.log("no msg");
     }

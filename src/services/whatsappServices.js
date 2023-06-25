@@ -30,6 +30,37 @@ function SendMessageWhatsApp(textResponse, number){
 
 }
 
+function getMediaURLWhatsApp(id){
+
+    const Authorization = "Bearer " + process.env.META_TOKEN;
+
+    const options = {
+        host: "graph.facebook.com",
+        path: "/v17.0",
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization
+        }
+    };
+
+    const req = https.request(options, res => {
+        res.on("data" , d=> {
+            console.log(data)
+            process.stdout.write(d);
+        });
+    });
+
+    req.on("error", error => {
+        console.error(error);
+    });
+
+    req.write(data);
+    req.end();
+
+}
+
 module.exports = {
-    SendMessageWhatsApp
+    SendMessageWhatsApp,
+    getMediaURLWhatsApp
 }
