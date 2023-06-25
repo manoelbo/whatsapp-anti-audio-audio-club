@@ -26,6 +26,7 @@ const ReceivedMessage = (req, res) => {
         var value = (changes["value"]);
         var messageObject = value["messages"];
        
+        console.log(JSON.stringify(entry));
         
         if(typeof messageObject != "undefined"){
             var messages = messageObject[0];

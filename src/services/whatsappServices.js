@@ -33,7 +33,8 @@ function SendMessageWhatsApp(textResponse, number){
 function getMediaURLWhatsApp(id){
     console.log("getMediaURLWhatsApp chamada");
     const Authorization = "Bearer " + process.env.META_TOKEN;
-    const path = "/v17.0/"+id
+    const path = "/v17.0/"+id;
+    console.log(path);
 
     const options = {
         host: "graph.facebook.com",
@@ -55,6 +56,7 @@ function getMediaURLWhatsApp(id){
 
     req.on("error", error => {
         console.error(error);
+        console.log(error);
     });
     console.log(data);
     req.write(data);
