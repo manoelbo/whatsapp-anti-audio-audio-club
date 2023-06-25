@@ -40,7 +40,6 @@ const ReceivedMessage = (req, res) => {
         res.send("EVENT_RECEIVED");
     }
 }
-
 function GetTextUser(messages){
     var text = '';
     var typeMessage = messages["type"];

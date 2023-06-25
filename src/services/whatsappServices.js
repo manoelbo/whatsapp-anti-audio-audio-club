@@ -33,10 +33,11 @@ function SendMessageWhatsApp(textResponse, number){
 function getMediaURLWhatsApp(id){
 
     const Authorization = "Bearer " + process.env.META_TOKEN;
+    const path = "/v17.0/"+id
 
     const options = {
         host: "graph.facebook.com",
-        path: "/v17.0",
+        path,
         method: "GET",
         headers: {
             "Content-Type": "application/json",
