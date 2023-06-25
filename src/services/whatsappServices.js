@@ -13,6 +13,9 @@ function SendMessageWhatsApp(textResponse, number){
 
     const Authorization = "Bearer " + process.env.META_TOKEN;
 
+    console.log(Authorization);
+    console.log(number);
+
     const options = {
         host: "graph.facebook.com",
         path: "/v17.0/114179078380795/messages",
