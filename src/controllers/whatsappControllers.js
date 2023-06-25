@@ -32,7 +32,7 @@ const ReceivedMessage = (req, res) => {
             var number = messages["from"];
             console.log("numero é", number);
             console.log(text);
-            whatsappService.SendMessageWhatsApp("o texto é: " + text, number)
+            whatsappService.SendMessageWhatsApp("ola mundo", number)
 
         }
 
