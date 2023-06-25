@@ -30,15 +30,15 @@ const ReceivedMessage = (req, res) => {
         
         if(typeof messageObject != "undefined"){
             var messages = messageObject[0];
-
+            var number = messages["from"];
             if(messages["type"] == "audio"){
                 console.log("audio")
                 id = (messages["audio"])["id"];
                 console.log(id);
-                whatsappService.getMediaURLWhatsApp(id);
+                whatsappService.getMediaURLWhatsApp(id, number);
             } else {
                 var text = GetTextUser(messages);
-                var number = messages["from"];
+                
                 whatsappService.SendMessageWhatsApp("ola mundo", number)
             }
         }
