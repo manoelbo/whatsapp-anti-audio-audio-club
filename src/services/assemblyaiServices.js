@@ -51,14 +51,15 @@ async function TranscribeAudioAssemblyAI(upload_url, number){
     const transcriptionResult = pollingResponse.data
 
     if (transcriptionResult.status === 'completed') {
-        var text = transcriptionResult.text;
-        whatsappServices.SendMessageWhatsApp(text, number);
+        var transcript = "*Transcrição:*\n\n"+transcriptionResult.text;
+        whatsappServices.SendMessageWhatsApp(transcript, number);
+
         break
     } else if (transcriptionResult.status === 'error') {
         throw new Error(`Transcription failed: ${transcriptionResult.error}`)
     } else {
         whatsappServices.SendMessageWhatsApp(".", number);
-        await new Promise((resolve) => setTimeout(resolve, 6000))
+        await new Promise((resolve) => setTimeout(resolve, 10000))
     }
     }
    
