@@ -25,14 +25,21 @@ const ReceivedMessage = (req, res) => {
         var changes = (entry["changes"])[0];
         var value = (changes["value"]);
         var messageObject = value["messages"];
-
-        console.log(messageObject);
+       
+        
         if(typeof messageObject != "undefined"){
             var messages = messageObject[0];
-            var text = GetTextUser(messages);
-            var number = messages["from"];
-            whatsappService.SendMessageWhatsApp("ola mundo", number)
 
+            if(messages["type"] == "audio"){
+                console.log("audio")
+                id = (messages["audio"])["id"];
+                console.log(id);
+                whatsappService.getMediaURLWhatsApp(id);
+            } else {
+                var text = GetTextUser(messages);
+                var number = messages["from"];
+                whatsappService.SendMessageWhatsApp("ola mundo", number)
+            }
         }
 
         res.send("EVENT_RECEIVED");
@@ -60,11 +67,6 @@ function GetTextUser(messages){
             console.log("no msg");
         }
 
-    } else if(typeMessage == "audio"){
-        console.log("audio")
-        id = (messages["audio"])["id"];
-        console.log(id);
-        whatsappService.getMediaURLWhatsApp(id);
     } else {
         console.log("no msg");
     }
