@@ -26,6 +26,8 @@ const ReceivedMessage = (req, res) => {
         var value = (changes["value"]);
         var messageObject = value["messages"];
 
+        console.log(messageObject);
+
         if(typeof messageObject != "undefined"){
             var messages = messageObject[0];
             var text = GetTextUser(messages);
