@@ -7,14 +7,11 @@ function SendMessageWhatsApp(textResponse, number){
         "type": "text",
         "text": {
             "preview_url": false,
-            "body": "Teste"
+            "body": textResponse
         }
     });
 
     const Authorization = "Bearer " + process.env.META_TOKEN;
-
-    console.log(Authorization);
-    console.log(number);
 
     const options = {
         host: "graph.facebook.com",

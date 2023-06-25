@@ -30,13 +30,9 @@ const ReceivedMessage = (req, res) => {
             var messages = messageObject[0];
             var text = GetTextUser(messages);
             var number = messages["from"];
-            console.log("numero é", number);
-            console.log(text);
             whatsappService.SendMessageWhatsApp("ola mundo", number)
 
         }
-
-
 
         res.send("EVENT_RECEIVED");
     }catch(e){
