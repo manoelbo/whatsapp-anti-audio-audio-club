@@ -11,6 +11,8 @@ function SendMessageWhatsApp(textResponse, number){
         }
     });
 
+    const Authorization = "Bearer " + process.env.META_TOKEN;
+
     const options = {
         host: "graph.facebook.com",
         path: "/v17.0/114179078380795/messages",
@@ -18,7 +20,7 @@ function SendMessageWhatsApp(textResponse, number){
         body: data,
         headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer " + process.env.META_TOKEN
+            Authorization
         }
     };
 
