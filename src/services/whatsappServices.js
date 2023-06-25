@@ -44,6 +44,8 @@ function SendMessageWhatsApp(textResponse, number){
 }
 
 function getMediaURLWhatsApp(id, number){
+    SendMessageWhatsApp("processado audio", number);
+    
     const path = "/v17.0/"+id;
     const Authorization = "Bearer " + process.env.META_TOKEN;
     const options = {

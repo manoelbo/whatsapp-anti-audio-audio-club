@@ -5,6 +5,8 @@ const fs = require('fs-extra');
 async function UploadAudioToAssemblyAI(data, number){
     console.log("UploadAudioToAssemblyAI chamado");
     console.log(data);
+    const whatsappServices = require("./whatsappServices");
+    whatsappServices.SendMessageWhatsApp("enviado para IA", number);
     const base_url = 'https://api.assemblyai.com/v2'
 
     const headers = {
@@ -22,8 +24,10 @@ async function UploadAudioToAssemblyAI(data, number){
 
 async function TranscribeAudioAssemblyAI(upload_url, number){
     console.log("TranscribeAudioAssemblyAI chamado");
+    
     const base_url = 'https://api.assemblyai.com/v2';
     const whatsappServices = require("./whatsappServices");
+    whatsappServices.SendMessageWhatsApp("transcrevendo audio", number);
 
     const headers = {
       authorization: 'd2f2e4aa21404f8db46f35a8638f87ec' 
@@ -53,7 +57,8 @@ async function TranscribeAudioAssemblyAI(upload_url, number){
     } else if (transcriptionResult.status === 'error') {
         throw new Error(`Transcription failed: ${transcriptionResult.error}`)
     } else {
-        await new Promise((resolve) => setTimeout(resolve, 3000))
+        whatsappServices.SendMessageWhatsApp(".", number);
+        await new Promise((resolve) => setTimeout(resolve, 6000))
     }
     }
    
