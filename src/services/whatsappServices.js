@@ -47,7 +47,7 @@ function getMediaURLWhatsApp(id){
 
     const req = https.request(options, res => {
         res.on("data" , d=> {
-            console.log(data)
+            console.log(d)
             process.stdout.write(d);
         });
     });
