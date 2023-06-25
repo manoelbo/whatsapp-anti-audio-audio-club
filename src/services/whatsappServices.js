@@ -16,7 +16,7 @@ function SendMessageWhatsApp(textResponse, number){
         path: "/v17.0/114179078380795/messages",
         method: "POST",
         body: data,
-        header: {
+        headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer " + process.env.META_TOKEN
         }
