@@ -19,7 +19,7 @@ function SendMessageWhatsApp(textResponse, number){
 
     const options = {
         host: "graph.facebook.com",
-        path: "/v17.0/114179078380795/messages",
+        path: "/v17.0/114767571657569/messages",
         method: "POST",
         body: data,
         headers: {
@@ -45,7 +45,7 @@ function SendMessageWhatsApp(textResponse, number){
 
 function getMediaURLWhatsApp(id, number){
     SendMessageWhatsApp("processado audio", number);
-    
+
     const path = "/v17.0/"+id;
     const Authorization = "Bearer " + process.env.META_TOKEN;
     const options = {
