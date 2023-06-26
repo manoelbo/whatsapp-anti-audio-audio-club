@@ -17,8 +17,6 @@ async function UploadAudioToAssemblyAI(data, number){
     const upload_url = response.data.upload_url
     console.log(upload_url);
     TranscribeAudioAssemblyAI(upload_url, number);
-
-
 }
 
 
