@@ -10,7 +10,7 @@ async function UploadAudioToAssemblyAI(data, number){
     const base_url = 'https://api.assemblyai.com/v2'
 
     const headers = {
-      authorization: 'd2f2e4aa21404f8db46f35a8638f87ec' 
+      authorization: process.env.ASSEMBLY_TOKEN
     }
     const response = await axios.post(`${base_url}/upload`, data, { headers })
     
@@ -28,7 +28,7 @@ async function TranscribeAudioAssemblyAI(upload_url, number){
     whatsappServices.SendMessageWhatsApp("transcrevendo audio", number);
 
     const headers = {
-      authorization: 'd2f2e4aa21404f8db46f35a8638f87ec' 
+        authorization: process.env.ASSEMBLY_TOKEN
     }
 
     const data = {
